@@ -39,7 +39,7 @@ class Router {
 				
 				$segments = explode('/' , $internalRoute);
 				//обрезка названия сайта
-				//array_shift($segments);
+				array_shift($segments);
 				
 				$controllerName = ucfirst(array_shift($segments).'Controller');
 				

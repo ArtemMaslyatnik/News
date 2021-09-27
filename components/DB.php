@@ -3,7 +3,7 @@
 class DB {
     public static function getConnection() {
         $paramsPath = ROOT.'/config/db_params.php';
-        $params = include ($paramsPath);
+        $params = include($paramsPath);
         
         
         $dsn = "mysql:host={$params['host']}; dbname={$params['dbname']}; charset={$params['charset']}";
