@@ -13,9 +13,9 @@
 
         <?php
         //header
-        include_once ("./layouts/header.php");
+        include_once ("./view/layouts/header.php");
         //navigation
-        include_once ("./layouts/navigation.php");
+        include_once ("./view/layouts/navigation.php");
         ?>
         <!-- profile -->
         <div class="container-fluid">
@@ -110,7 +110,7 @@
                             </button>
                         </div>
                     </div>
-
+                    <div> <h3>Привет <?php echo $user['name']?></h3></div>
                     <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="1074" height="453" style="display: block; width: 1074px; height: 453px;"></canvas>
 
                     <h2>Section title</h2>
@@ -247,7 +247,7 @@
 
         <?php
         //footer
-        include_once ("./layouts/footer.php");
+        include_once ("./view/layouts/footer.php");
         ?>
 
     </body>

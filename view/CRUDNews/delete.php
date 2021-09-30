@@ -9,7 +9,7 @@
             <p>Вы действительно хотите удалить эту статью?</p>
 
             <form method="post">
-                <input type="submit" name="submit" value="Удалить" />
+                <input class="btn btn-link" type="submit" name="submit" value="Удалить" />
             </form>
 
         </div>

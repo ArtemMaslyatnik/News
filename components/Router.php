@@ -22,6 +22,7 @@ class Router {
 	
 	public function run () {
 		
+
                 //Получить строку запроса
 		$uri = $this->getURI();
 		
