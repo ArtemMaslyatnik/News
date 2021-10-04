@@ -7,7 +7,7 @@
                 </li>
                 <?php if (User::isGuest()): ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="/news/user/login/">Вход</a>
+                        <a class="nav-link" href="/news/user/login">Вход</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/news/user/registration">Регистрация</a>
@@ -17,7 +17,7 @@
                         <a class="nav-link" href="/news/profile/index"><?php echo User::getName()  ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/news/user/logout/">Выход</a>
+                        <a class="nav-link" href="/news/user/logout">Выход</a>
                     </li>
                 <?php endif; ?>
             </ul>

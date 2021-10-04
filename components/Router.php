@@ -1,14 +1,30 @@
 <?php
 
+/**
+ * Класс Router
+ * Компонент для работы с маршрутами
+ */
 class Router {
-	
+   
+        /**
+        * Свойство для хранения массива роутов
+        * @var array 
+        */
 	private $routes;
 	
+        /**
+         * Конструктор
+         */
 	public function __construct () {
+            
+                // Путь к файлу с роутами
 		$routesPatch = ROOT.'/config/routes.php';
+                
+                // Получаем роуты из файла
 		$this->routes = include($routesPatch);
 		
 	}
+        
 	/**
          * Returns request string
          * @return string
@@ -20,14 +36,16 @@ class Router {
 		}
 	}
 	
+        /**
+        * Метод для обработки запроса
+        */
 	public function run () {
 		
 
                 //Получить строку запроса
 		$uri = $this->getURI();
 		
-		//Наличие такого запроса в routes.php
-		
+		// Проверяем наличие такого запроса в массиве маршрутов (routes.php)
 		foreach ($this->routes as $uriPattern =>$path) {
 			
 			//Сравниваем "~$uriPattern~", $uri
@@ -37,9 +55,10 @@ class Router {
 				$internalRoute = preg_replace("~$uriPattern~", $path, $uri);
 
 				//Определяем какой контролер и action обрабатывают запроса
-				
-				$segments = explode('/' , $internalRoute);
-				//обрезка названия сайта
+
+                                $segments = explode('/' , $internalRoute);
+			
+                                //обрезка названия сайта
 				array_shift($segments);
 				
 				$controllerName = ucfirst(array_shift($segments).'Controller');

@@ -1,21 +1,27 @@
 <?php
 
+/**
+ * Класс News - модель для работы с контентом
+ */
 class News {
-    /**
-    * Returns an array of news items
-    * @return array
-    */
    
-    static function getNewsList() {
+    /**
+     * Возвращает массив контента
+     * @return array <p>Массив с контентом</p>
+     */
+   
+    public static function getLatesNewsList() {
         
+        // Соединение с БД
         $db = Db::getConnection();
         
-        $newsList = array();
-        $result = $db->query('SELECT id, title, date, author_name, short_content, content FROM news ORDER BY  date  DESC LIMIT 10');
+        // Текст запроса к БД
+        $result = $db->query('SELECT id, title, date, author_name, short_content, content FROM news ORDER BY  date  DESC LIMIT 20');
         
        
+        // Получение и возврат результатов
    	$i = 0;
-		
+	$newsList = array();	
 	while($row = $result->fetch()) {
         	$arrNews[$i]['id'] = $row['id'];
 		$arrNews[$i]['title'] = $row['title'];
@@ -109,7 +115,6 @@ class News {
         $result->bindParam(':author_name', $options['author_name'], PDO::PARAM_STR);
  
          return $result->execute();       
-        
     }
     
       /**
@@ -135,7 +140,6 @@ class News {
         $result->execute(); 
         
         return $result->fetch();
-              
-        
     }
+    
 }

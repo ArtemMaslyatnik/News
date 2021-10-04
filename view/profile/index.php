@@ -111,6 +111,16 @@
                         </div>
                     </div>
                     <div> <h3>Привет <?php echo $user['name']?></h3></div>
+                    <image src="<?php echo User::getImage($user['id'])?>" width = "200" alt ="Аватар" />
+                    <form action="/news/profile/uplad/avatar" method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <input name="image" type="file" />                            
+                        </div>
+                        <input type="submit" value="изменить изображение" class="btn btn-link"   name='submit'/>
+                    </form>
+                    <a href="/news/profile/edit" class="btn btn-link"><i class="fa fa-plus"></i>Редактировать свои данные</a> 
+                    
+                    
                     <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="1074" height="453" style="display: block; width: 1074px; height: 453px;"></canvas>
 
                     <h2>Section title</h2>

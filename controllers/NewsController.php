@@ -1,21 +1,27 @@
 <?php
 
-include_once ROOT . '/models/News.php';
-include_once ROOT . '/models/User.php';
-
+/**
+ * Контроллер NewsController
+ * Управление контентом
+ */
 class NewsController {
 
+    /**
+     * Action для страницы "Управление контентом"
+     */
     public function actionIndex() {
-        $arrNews = array();
-        $arrNews = News::getNewsList();
-
+        
+        // Получаем список контента
+        $arrNews = News::getLatesNewsList();
+        
+        // Подключаем вид
         require_once ROOT . '/view/news/index.php';
 
         return true;
     }
     
     /**
-     * Action для страницы "Добавить товар"
+     * Action для страницы "Добавить новость"
      */
     public function actionCreate() {
 
@@ -39,20 +45,21 @@ class NewsController {
 
             if ($errors == false) {
                 // Если ошибок нет
-                // Добавляем новый товар
+                // Добавляем новый контент
                 $id = News::createNews($options);
 
-                // Перенаправляем пользователя на страницу новостей
+                // Перенаправляем пользователя на страницу контент
                 header("Location: /news/index");
             }
         }
+        // Подключаем вид
         require_once ROOT . '/view/news/create.php';
 
         return true;
     }
 
     /**
-     * Action для страницы "Удалить товар"
+     * Action для страницы "Удалить контент"
      */
     public function actionDelete($id) {
         //Обработка формы
@@ -60,23 +67,23 @@ class NewsController {
             // Если форма отправлена
             // Удаляем
             News::deleteNewsById($id);
-            // Перенаправляем пользователя на страницу новостей
+            // Перенаправляем пользователя на страницу контента
             header("Location: /news/index");
         }
-
+        // Подключаем вид
         require_once ROOT . '/view/news/delete.php';
 
         return true;
     }
     
     /**
-     * Action для страницы "Редактировать товар"
+     * Action для страницы "Редактировать контента"
      */
     public function actionUpdate($id) {
         
         
         
-        // Получаем данные о конкретном заказе
+        // Получаем данные о контенте
         $news = News::getNewsById($id);
 
         //Обработка формы
@@ -88,22 +95,28 @@ class NewsController {
             $options['short_content'] = $_POST['short_content'];
             $options['content'] = $_POST['content'];
             $options['author_name'] = $_POST['author_name'];
-
+            
+            // Сохраняем изменения
             News::updateNewsById($id, $options);
+            
+            // Перенаправляем пользователя на страницу контента
             header("Location: /news/index");
             
         }
-                
+        // Подключаем вид        
         require_once ROOT . '/view/news/update.php';
         return true;
     }
 
-    
+    /**
+     * Action для страницы "Показать контента"
+     */
     public function actionView($id) {
        
-        // Получаем данные о конкретном заказе
+        // Получаем данные о конкретном контенте
         $news = News::getNewsById($id);
         
+        // Подключаем вид
         require_once ROOT . '/view/news/view.php';
         return true;
     

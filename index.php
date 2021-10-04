@@ -8,11 +8,10 @@
 
 session_start();
 
+
 // Подключение файловой системы    
 define('ROOT', dirname(__FILE__));
-require_once(ROOT.'/components/Router.php');
-require_once(ROOT.'/components/DB.php');
-
+require_once(ROOT.'/components/Autoload.php');
 //Вызов Router
 $router = new Router();
 $router->run(); 
