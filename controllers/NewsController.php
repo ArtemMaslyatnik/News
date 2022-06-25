@@ -15,8 +15,8 @@ class NewsController {
         $arrNews = News::getLatesNewsList();
         
         // Подключаем вид
-        require_once ROOT . '/view/news/index.php';
-
+        $connectionFile = ROOT."/view/CRUDNews/index.php";
+        include_once (ROOT."/view/layouts/layouts.php");
         return true;
     }
     
@@ -53,7 +53,8 @@ class NewsController {
             }
         }
         // Подключаем вид
-        require_once ROOT . '/view/news/create.php';
+        $connectionFile = ROOT."/view/CRUDNews/create.php";
+        include_once(ROOT."/view/layouts/layouts.php");
 
         return true;
     }
@@ -71,7 +72,8 @@ class NewsController {
             header("Location: /news/index");
         }
         // Подключаем вид
-        require_once ROOT . '/view/news/delete.php';
+        $connectionFile = ROOT."/view/CRUDNews/delete.php";
+        include_once(ROOT."/view/layouts/layouts.php");
 
         return true;
     }
@@ -104,7 +106,8 @@ class NewsController {
             
         }
         // Подключаем вид        
-        require_once ROOT . '/view/news/update.php';
+        $connectionFile = ROOT."/view/CRUDNews/update.php";
+        include_once(ROOT."/view/layouts/layouts.php");
         return true;
     }
 
@@ -117,7 +120,9 @@ class NewsController {
         $news = News::getNewsById($id);
         
         // Подключаем вид
-        require_once ROOT . '/view/news/view.php';
+
+        $connectionFile = ROOT."/view/CRUDNews/view.php";
+        include_once (ROOT."/view/layouts/layouts.php");
         return true;
     
     }

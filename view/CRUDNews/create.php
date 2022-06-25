@@ -1,4 +1,6 @@
 <div class="container">
+    <br>
+    <br>
     <div class="row">
         <div class="col-md-12" >
             <form action="#" method="post" enctype="multipart/form-data" role="form">

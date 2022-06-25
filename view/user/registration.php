@@ -37,16 +37,17 @@
                                 <h1 class="h3 mb-3 fw-normal">Регистрация</h1>
 
                                 <div class="form-group">
-                                    <input type="text" name="name" class="form-control" id="floatingInput" placeholder="логин" value="<?php echo $name; ?>">
                                     <label for="floatingInput">Логин</label>
+                                    <input type="text" name="name" class="form-control" id="floatingInput" placeholder="логин" value="<?php echo $name; ?>">
+
                                 </div>
                                 <div class="form-group">
+                                <label for="floatingInput">Email адрес</label>
                                     <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com" value="<?php echo $email; ?>">
-                                    <label for="floatingInput">Email адрес</label>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Пароль" value="<?php echo $password; ?>">
                                     <label for="floatingPassword">Пароль</label>
+                                    <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Пароль" value="<?php echo $password; ?>">
                                 </div>
 
                                 <input class="btn btn-link" type="submit" name="submit" value="Регистрация">

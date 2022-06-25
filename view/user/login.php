@@ -35,12 +35,12 @@
                             <h1 class="h3 mb-3 fw-normal">Пожалуйста войдите</h1>
 
                             <div class="form-group">
-                                <input type="email" name='email' class="form-control" id="floatingInput" placeholder="name@example.com">
                                 <label for="floatingInput">Email адрес</label>
+                                <input type="email" name='email' class="form-control" id="floatingInput" placeholder="name@example.com">
                             </div>
                             <div class="form-group">
-                                <input type="password" name='password' class="form-control" id="floatingPassword" placeholder="Пароль">
                                 <label for="floatingPassword">Пароль</label>
+                                <input type="password" name='password' class="form-control" id="floatingPassword" placeholder="Пароль">
                             </div>
                             <input class="btn btn-link" type="submit" value="Войти" name='submit' >
                         </form>
